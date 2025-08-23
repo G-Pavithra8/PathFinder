@@ -18,7 +18,7 @@ const HelpModal = ({ show, onClose }) => {
     }
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/help", {
+      await axios.post("http://pathfinder-backend-qnv1.onrender.com/api/help", {
         message,
         email,
       }, { withCredentials: true });
