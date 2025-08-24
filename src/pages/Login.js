@@ -18,7 +18,7 @@ const AuthForm = () => {
     }
     setLoading(true);
     try {
-      const res = await axios.post('http://pathfinder-backend-qnv1.onrender.com/api/signup', {
+      const res = await axios.post('https://pathfinder-backend-qnv1.onrender.com/api/signup', {
         email, password, name
       }, { withCredentials: true });
       // Show success if status is 201 or message exists
@@ -45,7 +45,7 @@ const AuthForm = () => {
     }
     setLoading(true);
     try {
-      const res = await axios.post('http://pathfinder-backend-qnv1.onrender.com/api/login', {
+      const res = await axios.post('https://pathfinder-backend-qnv1.onrender.com/api/login', {
         email, password
       }, { withCredentials: true });
       alert('Login Successful!');

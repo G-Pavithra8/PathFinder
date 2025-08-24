@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/logout', {}, { withCredentials: true });
+      await axios.post('https://pathfinder-backend-qnv1.onrender.com/api/logout', {}, { withCredentials: true });
     } catch (err) {
       // Optionally handle error
     }

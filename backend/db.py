@@ -1,13 +1,20 @@
-# db.py
 from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
-# Load env vars
-load_dotenv()
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
 
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+MONGO_URI = os.getenv("MONGO_URI")
 MONGO_DB = os.getenv("MONGO_DB", "pathfinder")
 
-client = MongoClient(MONGO_URI)
+client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=10000)  # 10s timeout
 db = client[MONGO_DB]
+
+# Test connection
+try:
+    client.admin.command('ping')
+    print("MongoDB connected successfully!")
+except Exception as e:
+    print("MongoDB connection error:", e)

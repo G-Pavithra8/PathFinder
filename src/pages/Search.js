@@ -19,11 +19,11 @@ const Search = () => {
     const fetchData = async () => {
       try {
         // Fetch courses first
-        const coursesRes = await axios.get('http://pathfinder-backend-qnv1.onrender.com/api/courses');
+        const coursesRes = await axios.get('https://pathfinder-backend-qnv1.onrender.com/api/courses');
         setCourses(coursesRes.data);
         
         // Then fetch all colleges
-        const collegesRes = await axios.get('http://pathfinder-backend-qnv1.onrender.com/api/colleges');
+        const collegesRes = await axios.get('https://pathfinder-backend-qnv1.onrender.com/api/colleges');
         setColleges(collegesRes.data);
         setFilteredColleges(collegesRes.data);
         setLoading(false);
@@ -50,7 +50,7 @@ const Search = () => {
         if (value) params.append(key, value);
       });
 
-      const response = await axios.get(`http://pathfinder-backend-qnv1.onrender.com/api/colleges?${params.toString()}`);
+      const response = await axios.get(`https://pathfinder-backend-qnv1.onrender.com/api/colleges?${params.toString()}`);
       setFilteredColleges(response.data);
       setLoading(false);
     } catch (err) {
